@@ -1,3 +1,5 @@
+![Alt text](https://github.com/PeterMyrobot/Slide-Puzzle-Game-on-Swift/blob/master/13632691_1276837922328184_712747428_o.gif)
+
 # Slide-Puzzle-Game-on-Swift
 Build a slide puzzle game on swift2 and Xcode version 7.3
 
