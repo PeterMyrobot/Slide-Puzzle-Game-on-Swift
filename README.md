@@ -13,4 +13,17 @@ NSTimer: Can counting the time that user spend to solve the puzzle.
 AlertController: To tell user they solve this problem, and allows them to restart the game.
 
 Arc4random_uniform: To create a random array as a problem.
-  
+
+#About the problem is solvable or not
+
+I found a web site discuss with this quition, https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
+
+The formula says:
+
+If the grid width is odd, then the number of inversions in a solvable situation is even.
+
+If the grid width is even, and the blank is on an even row counting from the bottom (second-last, fourth-last etc), then the number of inversions in a solvable situation is odd.
+
+If the grid width is even, and the blank is on an odd row counting from the bottom (last, third-last, fifth-last etc) then the number of inversions in a solvable situation is even.
+
+So I use the formula above to check the random array I generate is solvable or not.
