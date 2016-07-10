@@ -1,7 +1,7 @@
 # Slide-Puzzle-Game-on-Swift
-Build a slide puzzle game on swift2 Xcode version 7.3
+Build a slide puzzle game on swift2 and Xcode version 7.3
 
-I'm doing the fundation of programming, and following the class CS50 on youtube, and saw this game as an assignment,
+I'm doing the fundation of programming, and following the class CS50 on youtube, saw this game as an assignment,
 so I decided to bulid my own slide puzzle game on Swift.
 
 #In this App, I learned how to use
