@@ -199,8 +199,8 @@ class ViewController: UIViewController {
         isPlayerStartorNot = false
         seconds = 0
         stepCount = 0
-        timeCounter.text = "Time you take: \(seconds/10).\(seconds%10)"
-        stepCounter.text = "Steps you take : \(stepCount)"
+        timeCounter.text = "Time: \(seconds/10).\(seconds%10)"
+        stepCounter.text = "Steps: \(stepCount)"
 
         while !thisArrayCanSolveorNot{
             
