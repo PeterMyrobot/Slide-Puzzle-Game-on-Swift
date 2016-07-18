@@ -10,7 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
+    var leaderboardData: NSUserDefaults!
+    
+    var leaderboardNameArray = ["Peter", "Limi", "-", "-", "-", "-", "-", "-", "-", "-"]
+    var leaderboardStepArray = [123, 155, 999, 999, 999, 999, 999, 999, 999, 999]
+    var leaderboardTimArray = [870, 930, 999, 999, 999, 999, 999, 999, 999, 999]
+    
     @IBOutlet var blocks: [UILabel]!
     @IBOutlet weak var stepCounter: UILabel!
     @IBOutlet weak var timeCounter: UILabel!
@@ -30,8 +35,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        leaderboardData = NSUserDefaults.standardUserDefaults()
+        
+        if let name = leaderboardData.objectForKey("name") as? [String]{
+            leaderboardNameArray = name
+        }
+        if let step = leaderboardData.objectForKey("step") as? [Int]{
+            leaderboardStepArray = step
+        }
+        if let time = leaderboardData.objectForKey("time") as? [Int]{
+            leaderboardTimArray = time
+        }
         
         generateArray()
+        
         for i in 0..<blocks.count{
             blocks[i].layer.cornerRadius = 10
             blocks[i].clipsToBounds = true
@@ -51,6 +68,20 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(downSwipe)
 
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showLeaderboard" {
+            let destinationController = segue.destinationViewController as! LeaderboardViewController
+            destinationController.leaderboardNameArray = (leaderboardData.objectForKey("name") as? [String])!
+            destinationController.leaderboardStepArray = (leaderboardData.objectForKey("step") as? [Int])!
+
+        }
+    }
+    @IBAction func close(segue: UIStoryboardSegue){
+        generateArray()
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,11 +144,34 @@ class ViewController: UIViewController {
         if randomArray == blockPosition{
             timer.invalidate()
             let alertController = UIAlertController(title: "Congratulation!", message: "You solve this problem\n Used \(stepCount) steps and \(seconds/10).\(seconds%10)s", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Start a new game", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) in
+            for x in leaderboardStepArray{
+                if stepCount < x{
+                    let index = leaderboardStepArray.indexOf(x)
+                    alertController.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+                        textField.text = "Enter your name."})
+                    alertController.addAction(UIAlertAction(title: "Resign", style: .Default, handler: { (action) -> Void in
+                        let textField = (alertController.textFields?[0])! as UITextField
+                        print("Text field: \(textField)")
+                        self.leaderboardNameArray.insert(textField.text!, atIndex: index!)
+                        self.leaderboardNameArray.removeLast()
+                        self.leaderboardStepArray.insert(self.stepCount, atIndex: index!)
+                        self.leaderboardStepArray.removeLast()
+                        self.leaderboardTimArray.insert(self.seconds, atIndex: index!)
+                        self.leaderboardTimArray.removeLast()
+                        
+                        self.leaderboardData.setObject(self.leaderboardNameArray, forKey: "name")
+                        self.leaderboardData.setObject(self.leaderboardStepArray, forKey: "step")
+                        self.leaderboardData.setObject(self.leaderboardTimArray, forKey: "time")
+                        self.leaderboardData.synchronize()
+                        
+                    }))
+                    break
+                }
+            }
+            alertController.addAction(UIAlertAction(title: "Ok!", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) in
                 self.generateArray()
                 
             }))
-            alertController.addAction(UIAlertAction(title: "Ok!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
             
         }
@@ -130,6 +184,16 @@ class ViewController: UIViewController {
     
     
     func generateArray(){//Generate an array and check if it is solvable or not
+        
+                if let nameArray = leaderboardData.objectForKey("name"){
+                    print("\(nameArray)")
+                }
+                if let stepArray = leaderboardData.objectForKey("step"){
+                    print("\(stepArray)")
+                }
+                if let timeArray = leaderboardData.objectForKey("time"){
+                    print("\(timeArray)")
+                }
         var inversecount = 0
         var thisArrayCanSolveorNot = false
         isPlayerStartorNot = false
@@ -142,7 +206,7 @@ class ViewController: UIViewController {
             
             //test code one step finish!
 //            blockPosition = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0]
-//            randomArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,0,15]
+//            randomArray = [1,2,3,4,5,6,7,8,9,0,10,12,13,14,11,15]
 //            for i in 0...15{
 //                if randomArray[i] != 0{
 //                    blocks[i].text = "\(randomArray[i])"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1831C9721D3D117900E33407 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831C9711D3D117900E33407 /* LeaderboardViewController.swift */; };
+		1831C9741D3D1D3800E33407 /* leaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831C9731D3D1D3800E33407 /* leaderboardTableViewCell.swift */; };
 		187D38C01CF8464C005546D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D38BF1CF8464C005546D2 /* AppDelegate.swift */; };
 		187D38C21CF8464C005546D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D38C11CF8464C005546D2 /* ViewController.swift */; };
 		187D38C51CF8464C005546D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D38C31CF8464C005546D2 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1831C9711D3D117900E33407 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		1831C9731D3D1D3800E33407 /* leaderboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = leaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		187D38BC1CF8464C005546D2 /* SlidePuzzleII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidePuzzleII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187D38BF1CF8464C005546D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187D38C11CF8464C005546D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				187D38C61CF8464C005546D2 /* Assets.xcassets */,
 				187D38C81CF8464C005546D2 /* LaunchScreen.storyboard */,
 				187D38CB1CF8464C005546D2 /* Info.plist */,
+				1831C9711D3D117900E33407 /* LeaderboardViewController.swift */,
+				1831C9731D3D1D3800E33407 /* leaderboardTableViewCell.swift */,
 			);
 			path = SlidePuzzleII;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				187D38C21CF8464C005546D2 /* ViewController.swift in Sources */,
+				1831C9741D3D1D3800E33407 /* leaderboardTableViewCell.swift in Sources */,
+				1831C9721D3D117900E33407 /* LeaderboardViewController.swift in Sources */,
 				187D38C01CF8464C005546D2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
