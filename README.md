@@ -17,6 +17,12 @@ AlertController: To tell user they solve this problem, and allows them to restar
 
 Arc4random_uniform: To create a random array as a problem.
 
+NSUserDefaults: To save data for leaderboard.
+
+Segue: change to another screen.
+
+UITable: create a table to show leaderboard.
+
 #About the problem is solvable or not
 
 I found a web site discuss with this quition, https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
