@@ -7,7 +7,7 @@ Build a slide puzzle game on swift2 and Xcode version 7.3
 I'm doing the fundation of programming, and following the class CS50 on youtube, saw this game as an assignment,
 so I decided to bulid my own slide puzzle game on Swift.
 
-#In this App, I learned how to use
+# In this App, I learned how to use
 
 UISwipeGestureRecognizer: Let app can know what direction user want to move.
   
@@ -23,7 +23,7 @@ Segue: change to another screen.
 
 UITable: create a table to show leaderboard.
 
-#About the problem is solvable or not
+# About the problem is solvable or not
 
 I found a web site discuss with this quition, https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
 
